@@ -4,13 +4,13 @@
 
 This repository contains the source code for 李胤儒's personal research portfolio. The site presents project work across UAV-based inspection, computer vision, smart transportation, and transportation infrastructure safety.
 
-本仓库是李胤儒个人科研主页的源码。网站围绕无人机低空巡检、计算机视觉、智慧交通与交通基础设施安全治理展开，用交互式项目档案的方式展示项目经历、研究方向、履历与联系方式。
+本仓库个人科研主页的源码。网站围绕无人机低空巡检、计算机视觉、智慧交通与交通基础设施安全治理展开，用交互式项目档案的方式展示项目经历、研究方向、履历与联系方式。
 
 ## Overview
 
-The website is designed as an explorable research profile rather than a static resume page. It uses restrained dark UI, clickable project cards, image lightboxes, pipeline explainers, and accessible micro-interactions to help visitors understand the evidence behind each project.
+The website is designed as an explorable research profile. It uses restrained dark UI, clickable project cards, image lightboxes, pipeline explainers, and accessible micro-interactions to help visitors understand the evidence behind each project.
 
-网站目标不是简单的静态简历，而是一份可探索的个人研究档案。页面通过深色工程感视觉、项目卡片、图片放大、技术流程解释和清晰的交互反馈，帮助访问者理解项目背后的证据链与工程语境。
+网站是一份可探索的个人研究档案。页面通过深色工程感视觉、项目卡片、图片放大、技术流程解释和清晰的交互反馈，帮助访问者理解项目背后的证据链与工程语境。
 
 ## Site Structure
 
