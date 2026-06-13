@@ -1,0 +1,32 @@
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: *
+Disallow: /images/picture/transport-competition-award.jpg
+Disallow: /images/picture/caac-license-redacted.jpg
+Disallow: /images/picture/computer-rank%20level-2.jpg
+Allow: /
