@@ -88,14 +88,23 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-family: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  min-width: 0;
   background:
     radial-gradient(circle at 18% 8%, rgba(45, 212, 191, 0.075), transparent 28rem),
     radial-gradient(circle at 82% 0%, rgba(99, 102, 241, 0.045), transparent 26rem),
     linear-gradient(180deg, #0a121b 0%, #101820 48%, #0b131c 100%);
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: rgba(45, 212, 191, 0.16);
 }
 
 ::selection {

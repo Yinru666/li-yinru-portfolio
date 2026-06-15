@@ -84,6 +84,12 @@ Run the production build:
 npm run build
 ```
 
+Generate a portable static build for China-friendly static hosting/CDN:
+
+```bash
+npm run build:static
+```
+
 On some Windows sandbox environments, `next build` can fail with `spawn EPERM` when worker processes are blocked. Running the same build outside that sandbox completes successfully.
 
 ## Content Maintenance
@@ -117,6 +123,8 @@ The production site is hosted on Vercel:
 [https://li-yinru-portfolio.vercel.app](https://li-yinru-portfolio.vercel.app)
 
 The project is intended to be connected to GitHub so that pushes to `main` trigger Vercel deployments automatically.
+
+For China-facing access, the project can also be exported as a static site and uploaded to a China-friendly static host or CDN. See [docs/china-access.md](docs/china-access.md).
 
 ## License
 

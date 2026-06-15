@@ -3,7 +3,7 @@ import { contact } from "@/data/contact";
 
 export function ContactCTASection() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <section className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <div className="overflow-hidden rounded-lg border border-slate-500/25 bg-slate-900/70 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-8">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
@@ -18,10 +18,10 @@ export function ContactCTASection() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-            <CTAButton href="/contact" variant="primary">
+            <CTAButton href="/contact" variant="primary" className="w-full justify-center sm:w-auto">
               Contact Me
             </CTAButton>
-            <CTAButton href="/projects" variant="ghost">
+            <CTAButton href="/projects" variant="ghost" className="w-full justify-center sm:w-auto">
               View Projects
             </CTAButton>
           </div>

@@ -61,9 +61,22 @@ const sensitiveAssetHeaders = [
   },
 ];
 
+const isStaticExport = process.env.NEXT_OUTPUT === "export";
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  ...(isStaticExport
+    ? {
+        output: "export" as const,
+        trailingSlash: true,
+      }
+    : {}),
   images: {
+    ...(isStaticExport
+      ? {
+          unoptimized: true,
+        }
+      : {}),
     localPatterns: [
       {
         pathname: "/images/picture/**",
@@ -71,26 +84,30 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: securityHeaders,
-      },
-      {
-        source: "/images/picture/transport-competition-award.jpg",
-        headers: sensitiveAssetHeaders,
-      },
-      {
-        source: "/images/picture/caac-license-redacted.jpg",
-        headers: sensitiveAssetHeaders,
-      },
-      {
-        source: "/images/picture/computer-rank%20level-2.jpg",
-        headers: sensitiveAssetHeaders,
-      },
-    ];
-  },
+  ...(isStaticExport
+    ? {}
+    : {
+        async headers() {
+          return [
+            {
+              source: "/:path*",
+              headers: securityHeaders,
+            },
+            {
+              source: "/images/picture/transport-competition-award.jpg",
+              headers: sensitiveAssetHeaders,
+            },
+            {
+              source: "/images/picture/caac-license-redacted.jpg",
+              headers: sensitiveAssetHeaders,
+            },
+            {
+              source: "/images/picture/computer-rank%20level-2.jpg",
+              headers: sensitiveAssetHeaders,
+            },
+          ];
+        },
+      }),
 };
 
 export default nextConfig;

@@ -17,14 +17,14 @@ const resumeEvidence = [
 
 export default function ResumePage() {
   return (
-    <div className="section-fade mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className="section-fade mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <SectionTitle
         eyebrow="Profile / Resume"
         title="个人履历"
       />
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[0.7fr_1.3fr]">
-        <aside className="h-fit rounded-lg border border-slate-500/25 bg-slate-900/55 p-6">
+      <div className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-[0.68fr_1.32fr]">
+        <aside className="h-fit rounded-lg border border-slate-500/25 bg-slate-900/65 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-6 lg:sticky lg:top-24">
           <ImageFrame
             image={images.portrait}
             priority
@@ -67,7 +67,7 @@ export default function ResumePage() {
                   href={image.src}
                   target="_blank"
                   rel="noreferrer"
-                  className="group grid grid-cols-[6rem_1fr] gap-3 rounded-md border border-slate-500/20 bg-slate-950/55 p-2 transition hover:border-teal-300/45 hover:bg-white/[0.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px"
+                  className="group grid grid-cols-[5.5rem_1fr] gap-3 rounded-md border border-slate-500/20 bg-slate-950/55 p-2 transition hover:border-teal-300/45 hover:bg-white/[0.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px sm:grid-cols-[6rem_1fr]"
                 >
                   <div className="overflow-hidden rounded border border-slate-500/15 bg-slate-950">
                     <Image
@@ -76,7 +76,7 @@ export default function ResumePage() {
                       width={image.width}
                       height={image.height}
                       sizes="6rem"
-                      className="h-20 w-24 object-cover opacity-85 saturate-[0.86] transition group-hover:scale-[1.035] group-hover:opacity-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                      className="h-20 w-full object-cover opacity-85 saturate-[0.86] transition group-hover:scale-[1.035] group-hover:opacity-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                     />
                   </div>
                   <div className="min-w-0 py-1">

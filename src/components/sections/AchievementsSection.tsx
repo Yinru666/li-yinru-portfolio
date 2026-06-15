@@ -8,14 +8,14 @@ export function AchievementsSection() {
   );
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <section className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <SectionTitle
           eyebrow="Highlights"
           title="项目经历与关键成果"
         />
       </div>
-      <div className="mt-10">
+      <div className="mt-8 lg:mt-10">
         <AchievementExplorer achievements={homepageAchievements} />
       </div>
     </section>

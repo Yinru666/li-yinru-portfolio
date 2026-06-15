@@ -5,12 +5,12 @@ import { skillGroups } from "@/data/skills";
 export function TechnicalStackSection() {
   return (
     <section className="border-y border-slate-500/15 bg-slate-950/55">
-      <div className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <SectionTitle
           eyebrow="Skills"
           title="技术能力"
         />
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 lg:mt-10 lg:grid-cols-3">
           {skillGroups.map((group) => (
             <div
               key={group.title}

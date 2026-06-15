@@ -22,7 +22,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
       <SheetTrigger asChild>
         <Button
           variant="outline"
-          className="border-slate-500/25 bg-white/[0.03] text-slate-200 hover:border-teal-300/45 hover:bg-white/[0.06] md:hidden"
+          className="shrink-0 border-slate-500/25 bg-white/[0.03] text-slate-200 hover:border-teal-300/45 hover:bg-white/[0.06] md:hidden"
         >
           Menu
         </Button>
