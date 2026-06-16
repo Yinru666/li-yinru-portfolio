@@ -1,36 +1,52 @@
 # China Access Deployment Notes
 
-This portfolio keeps Vercel as the primary global production deployment:
+This portfolio has two public deployment targets:
 
 ```text
+https://liyinru.cn
 https://li-yinru-portfolio.vercel.app
 ```
 
-For visitors in mainland China, the most reliable long-term path is a static
-deployment on a China-friendly CDN or cloud platform, usually with a custom
-domain and the required domain/hosting compliance handled by the site owner.
-The site is now prepared for that path through a static export build.
+`liyinru.cn` is configured as the custom-domain GitHub Pages deployment. Vercel
+remains the global fallback deployment.
+
+For visitors in mainland China, GitHub Pages may still vary by network
+environment. The most reliable long-term path is a static deployment on a
+China-friendly CDN or cloud platform, usually with the required domain/hosting
+compliance handled by the site owner. The site is prepared for that path through
+a static export build.
 
 ## Recommended Path
 
-1. Keep the Vercel deployment for global visitors and GitHub-based CI/CD.
-2. Generate a static build for China-friendly hosting:
+1. Use GitHub Pages for the current custom-domain deployment:
+
+   ```text
+   liyinru.cn
+   ```
+
+   The workflow `.github/workflows/pages.yml` builds and publishes the generated
+   `out/` directory. The custom domain is preserved by `public/CNAME`.
+
+2. Keep the Vercel deployment for global visitors and fallback access.
+
+3. Generate a static build for China-friendly hosting:
 
    ```bash
    npm run build:static
    ```
 
-3. Upload the generated `out/` directory to one of these targets:
+4. For a more reliable mainland China route, upload the generated `out/`
+   directory to one of these targets:
    - Tencent EdgeOne Pages or Tencent Cloud COS + CDN
    - Alibaba Cloud OSS + CDN
    - Huawei Cloud OBS + CDN
    - Another static host with a mainland China or Hong Kong/Singapore edge
 
-4. Configure the same security headers at the CDN or hosting layer. In static
+5. Configure the same security headers at the CDN or hosting layer. In static
    export mode, Next.js does not emit `headers()` from `next.config.ts`, so the
    hosting provider must handle response headers.
 
-5. Point a custom domain to the China-friendly host after the domain and hosting
+6. Point a custom domain to the China-friendly host after the domain and hosting
    requirements are ready.
 
 ## Why Static Export

@@ -1,10 +1,10 @@
 # Li Yinru Personal Research Portfolio
 
-[Live Site](https://li-yinru-portfolio.vercel.app) · [Projects](https://li-yinru-portfolio.vercel.app/projects) · [Research](https://li-yinru-portfolio.vercel.app/research) · [Resume](https://li-yinru-portfolio.vercel.app/resume) · [Contact](https://li-yinru-portfolio.vercel.app/contact)
+[Live Site](https://liyinru.cn) · [Projects](https://liyinru.cn/projects) · [Research](https://liyinru.cn/research) · [Resume](https://liyinru.cn/resume) · [Contact](https://liyinru.cn/contact)
 
 This repository contains the source code for 李胤儒's personal research portfolio. The site presents project work across UAV-based inspection, computer vision, smart transportation, and transportation infrastructure safety.
 
-本仓库个人科研主页的源码。网站围绕无人机低空巡检、计算机视觉、智慧交通与交通基础设施安全治理展开，用交互式项目档案的方式展示项目经历、研究方向、履历与联系方式。
+本仓库是李胤儒个人科研主页的源码。网站围绕无人机低空巡检、计算机视觉、智慧交通与交通基础设施安全治理展开，用交互式项目档案的方式展示项目经历、研究方向、履历与联系方式。
 
 ## Overview
 
@@ -27,7 +27,7 @@ The website is designed as an explorable research profile. It uses restrained da
 - **Styling**: Tailwind CSS
 - **UI primitives**: shadcn/ui and Radix UI
 - **Images**: local static assets with `next/image`
-- **Deployment**: Vercel
+- **Deployment**: Vercel and GitHub Pages
 
 ## Design Notes
 
@@ -118,11 +118,15 @@ To add a new project:
 
 ## Deployment
 
-The production site is hosted on Vercel:
+The custom-domain production site is published through GitHub Pages:
+
+[https://liyinru.cn](https://liyinru.cn)
+
+Vercel remains available as the global fallback deployment:
 
 [https://li-yinru-portfolio.vercel.app](https://li-yinru-portfolio.vercel.app)
 
-The project is intended to be connected to GitHub so that pushes to `main` trigger Vercel deployments automatically.
+GitHub Pages is deployed by `.github/workflows/pages.yml`, which builds the static export and publishes the generated `out/` directory. The custom domain is preserved through `public/CNAME`.
 
 For China-facing access, the project can also be exported as a static site and uploaded to a China-friendly static host or CDN. See [docs/china-access.md](docs/china-access.md).
 
