@@ -4,19 +4,19 @@ import { skillGroups } from "@/data/skills";
 
 export function TechnicalStackSection() {
   return (
-    <section className="border-y border-slate-500/15 bg-slate-950/55">
-      <div className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+    <section className="border-y border-white/8 bg-white/[0.018]">
+      <div className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         <SectionTitle
           eyebrow="Skills"
           title="技术能力"
         />
-        <div className="mt-8 grid gap-5 lg:mt-10 lg:grid-cols-3">
+        <div className="mt-10 grid gap-8 lg:mt-14 lg:grid-cols-3">
           {skillGroups.map((group) => (
             <div
               key={group.title}
-              className="rounded-lg border border-slate-500/20 bg-white/[0.03] p-5"
+              className="border-t border-white/10 pt-5"
             >
-              <h3 className="font-mono text-sm uppercase tracking-[0.2em] text-teal-300">
+              <h3 className="editorial-caption text-teal-300">
                 {group.title}
               </h3>
               <div className="mt-5 flex flex-wrap gap-2">

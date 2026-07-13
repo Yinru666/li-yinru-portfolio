@@ -1,36 +1,39 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { contact } from "@/data/contact";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-500/15 bg-slate-950">
-      <div className="mx-auto grid w-full max-w-7xl gap-6 px-4 py-10 text-sm text-slate-400 sm:px-6 md:grid-cols-[1fr_auto] lg:px-8">
+    <footer className="mx-auto w-full max-w-7xl px-4 pb-28 sm:px-6 md:pb-12 lg:px-8">
+      <div className="editorial-rule" />
+      <div className="grid gap-8 py-8 text-sm text-slate-400 md:grid-cols-[1fr_auto] md:items-end">
         <div>
-          <p className="font-semibold text-slate-100">李胤儒</p>
-          <p className="mt-2 max-w-2xl leading-6">
+          <p className="font-semibold text-slate-50">李胤儒</p>
+          <p className="mt-2 max-w-xl leading-6">
             太原科技大学车辆与交通工程学院，智慧交通方向。关注低空智能巡检、计算机视觉与交通基础设施安全。
           </p>
         </div>
-        <div className="flex flex-wrap gap-3 md:justify-end">
+        <div className="flex flex-wrap gap-x-5 gap-y-3 md:justify-end">
           <a
             href={`mailto:${contact.email}`}
-            className="rounded-md border border-slate-500/25 px-3 py-2 transition hover:border-teal-300/50 hover:text-teal-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px"
+            className="inline-flex items-center gap-1 font-medium text-slate-200 transition hover:text-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
           >
-            Email
+            Email <ArrowUpRight className="size-3.5" aria-hidden="true" />
           </a>
           <a
             href={contact.github}
             target="_blank"
             rel="noreferrer"
-            className="rounded-md border border-slate-500/25 px-3 py-2 transition hover:border-teal-300/50 hover:text-teal-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px"
+            className="inline-flex items-center gap-1 font-medium text-slate-200 transition hover:text-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
           >
-            GitHub
+            GitHub <ArrowUpRight className="size-3.5" aria-hidden="true" />
           </a>
           <Link
-            href="/projects"
-            className="rounded-md border border-slate-500/25 px-3 py-2 transition hover:border-teal-300/50 hover:text-teal-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px"
+            href="/contact"
+            prefetch={false}
+            className="font-medium text-slate-200 transition hover:text-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
           >
-            Projects
+            联系与交流
           </Link>
         </div>
       </div>

@@ -32,7 +32,7 @@ export const achievements: Achievement[] = [
     evidence: {
       label: "相关材料",
       href: images.transportAwardNews.src,
-      note: "官网新闻稿和奖项材料辅助展示。",
+      note: "太原科技大学官网获奖新闻与奖项材料。",
     },
   },
   {
@@ -72,7 +72,7 @@ export const achievements: Achievement[] = [
     evidence: {
       label: "相关材料",
       href: images.caacLicense.src,
-      note: "资质材料辅助展示。",
+      note: "CAAC 无人机机长资质相关材料。",
     },
   },
   {
@@ -89,7 +89,7 @@ export const achievements: Achievement[] = [
     evidence: {
       label: "相关材料",
       href: images.computerRank.src,
-      note: "证书材料辅助展示。",
+      note: "全国计算机等级考试证书相关材料。",
     },
   },
 ];

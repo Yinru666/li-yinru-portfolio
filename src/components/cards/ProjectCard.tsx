@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 type ProjectCardProps = {
@@ -13,49 +14,46 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group grid h-full min-w-0 grid-rows-[auto_1fr] overflow-hidden rounded-xl border border-slate-500/25 bg-slate-900/72 transition duration-200 hover:-translate-y-1 hover:border-teal-300/50 hover:bg-slate-900/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+      prefetch={false}
+      className="group flex min-w-0 flex-col rounded-[1.35rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
     >
-      <div className={featured ? "relative aspect-[16/9]" : "relative aspect-[16/10]"}>
+      <div className={`relative overflow-hidden rounded-[1.35rem] bg-slate-900 ${featured ? "aspect-[16/9]" : "aspect-[4/3]"}`}>
         {image ? (
           <Image
             src={image.src}
             alt={image.alt}
             width={image.width}
             height={image.height}
-            className="h-full w-full object-cover opacity-85 transition duration-300 group-hover:scale-[1.025] group-hover:opacity-95 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.035] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
         ) : null}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
-        <div className="absolute bottom-3 left-3 right-3 w-fit max-w-[calc(100%-1.5rem)] truncate rounded border border-slate-300/20 bg-slate-950/80 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-teal-200">
-          {project.eyebrow}
-        </div>
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/22 to-transparent" />
+        <span className="absolute left-4 top-4 rounded-full border border-white/35 bg-slate-950/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+          {project.status}
+        </span>
       </div>
-      <div className="flex h-full min-w-0 flex-col p-4 sm:p-5">
-        <div className="flex items-center justify-between gap-4">
-          <p className="min-w-0 text-xs text-slate-400">{project.status}</p>
-          <span className="text-xs text-teal-300 opacity-0 transition group-hover:opacity-100 motion-reduce:transition-none">
-            查看详情
+      <div className="flex flex-1 flex-col px-1 pt-5">
+        <div className="flex items-start justify-between gap-4">
+          <p className="editorial-caption text-teal-300">{project.eyebrow}</p>
+          <span className="grid size-8 shrink-0 place-items-center rounded-full border border-white/12 bg-white/[0.04] text-slate-200 transition group-hover:bg-slate-100 group-hover:text-slate-950">
+            <ArrowUpRight className="size-4" aria-hidden="true" />
+            <span className="sr-only">查看详情</span>
           </span>
         </div>
-        <h3 className="mt-3 min-w-0 break-words text-base font-semibold leading-snug text-slate-50 sm:text-lg">
+        <h3 className="mt-3 text-xl font-semibold leading-snug tracking-normal text-slate-50">
           {project.title}
         </h3>
-        <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-300">
-          {project.summary}
-        </p>
-        <div className="mt-auto flex flex-wrap gap-2 pt-5">
-          {project.keywords.slice(0, 4).map((keyword) => (
+        <p className="mt-3 text-balance text-sm leading-6 text-slate-400">{project.summary}</p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {project.keywords.slice(0, 3).map((keyword) => (
             <span
               key={keyword}
-              className="rounded border border-slate-500/20 px-2 py-1 font-mono text-[10px] text-slate-300 transition group-hover:border-teal-300/35 group-hover:text-teal-100"
+              className="rounded-full border border-white/10 bg-white/[0.025] px-2.5 py-1 font-mono text-[10px] text-slate-400 transition group-hover:border-teal-300/30 group-hover:text-teal-200"
             >
               {keyword}
             </span>
           ))}
         </div>
-        <span className="mt-5 inline-flex text-sm font-medium text-teal-300">
-          View Case Study
-        </span>
       </div>
     </Link>
   );

@@ -26,7 +26,7 @@ export function LightboxGallery({ images }: LightboxGalleryProps) {
             key={image.src}
             type="button"
             onClick={() => setSelected(image)}
-            className="group overflow-hidden rounded-lg border border-slate-500/20 bg-white/[0.03] text-left transition duration-200 hover:-translate-y-1 hover:border-teal-300/45 hover:bg-white/[0.052] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            className="group overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/[0.035] text-left shadow-[0_12px_32px_rgba(0,0,0,0.22)] transition duration-200 hover:-translate-y-1 hover:border-teal-300/35 hover:bg-white/[0.055] hover:shadow-[0_18px_42px_rgba(0,0,0,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             aria-label={`放大查看：${image.alt}`}
           >
             <div className="relative aspect-video overflow-hidden">
@@ -35,13 +35,13 @@ export function LightboxGallery({ images }: LightboxGalleryProps) {
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
-                className="h-full w-full object-cover opacity-90 transition duration-300 group-hover:scale-[1.025] group-hover:opacity-100 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               />
-              <span className="absolute bottom-3 right-3 rounded border border-slate-300/20 bg-slate-950/75 px-2 py-1 text-xs text-teal-200 opacity-0 transition group-hover:opacity-100">
-                Click to enlarge
+              <span className="absolute bottom-3 right-3 rounded-full border border-white/15 bg-[#111718]/88 px-2.5 py-1 text-xs text-slate-100 opacity-0 shadow-sm backdrop-blur-md transition group-hover:opacity-100 group-focus-visible:opacity-100">
+                放大查看
               </span>
             </div>
-            <p className="border-t border-slate-500/15 px-4 py-3 text-xs leading-5 text-slate-400">
+            <p className="border-t border-white/8 px-4 py-3 text-balance text-xs leading-5 text-slate-400">
               {image.caption}
             </p>
           </button>
@@ -55,13 +55,13 @@ export function LightboxGallery({ images }: LightboxGalleryProps) {
         }}
       >
         {selected ? (
-          <DialogContent className="max-h-[92vh] overflow-auto border-slate-500/25 bg-slate-950/95 p-0 shadow-2xl shadow-black/50 sm:max-w-6xl">
-            <DialogHeader className="border-b border-slate-500/15 p-4 pr-12">
-              <DialogTitle className="text-sm text-slate-100">
+          <DialogContent className="max-h-[92vh] overflow-auto border-white/12 bg-[#0e1414] p-0 shadow-[0_28px_80px_rgba(0,0,0,0.55)] sm:max-w-6xl">
+            <DialogHeader className="border-b border-white/10 p-4 pr-12">
+              <DialogTitle className="text-sm text-slate-50">
                 {selected.alt}
               </DialogTitle>
               <DialogDescription className="text-xs leading-5 text-slate-400">
-                这里呈现原始证据、技术路线图或检测结果；检测图不重绘框线，保留原图中的类别与置信度。
+                项目图像与技术资料原图
               </DialogDescription>
             </DialogHeader>
             <Image
@@ -71,17 +71,9 @@ export function LightboxGallery({ images }: LightboxGalleryProps) {
               height={selected.height}
               className="h-auto w-full"
             />
-            <div className="grid gap-4 border-t border-slate-500/20 p-4 text-sm leading-6 text-slate-400 md:grid-cols-[1.2fr_0.8fr]">
-              <p>{selected.caption}</p>
-              <div className="rounded-md border border-slate-500/20 bg-white/[0.03] p-3">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-teal-300/80">
-                  Reading layer
-                </p>
-                <p className="mt-2">
-                  关注图像来源、识别结果、空间位置和它在项目流程中的证据作用。
-                </p>
-              </div>
-            </div>
+            <p className="border-t border-white/10 p-4 text-sm leading-6 text-slate-400">
+              {selected.caption}
+            </p>
           </DialogContent>
         ) : null}
       </Dialog>

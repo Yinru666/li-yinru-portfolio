@@ -7,7 +7,7 @@
     "build": "next build",
     "build:static": "node scripts/build-static.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint src scripts next.config.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

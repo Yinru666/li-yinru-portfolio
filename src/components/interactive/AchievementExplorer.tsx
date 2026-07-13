@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import type { Achievement } from "@/data/achievements";
 
 type AchievementExplorerProps = {
@@ -7,7 +8,7 @@ type AchievementExplorerProps = {
 
 export function AchievementExplorer({ achievements }: AchievementExplorerProps) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2">
+    <div className="grid gap-x-10 md:grid-cols-2">
       {achievements.map((achievement) => {
         const href = achievement.relatedProjectSlug
           ? `/projects/${achievement.relatedProjectSlug}`
@@ -17,25 +18,23 @@ export function AchievementExplorer({ achievements }: AchievementExplorerProps) 
           <Link
             key={achievement.id}
             href={href}
-            className="group min-h-48 rounded-lg border border-slate-500/25 bg-slate-900/55 p-5 transition duration-200 hover:-translate-y-1 hover:border-teal-300/45 hover:bg-slate-900/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            prefetch={false}
+            className="group grid gap-4 border-t border-white/10 py-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300 sm:grid-cols-[auto_1fr_auto] sm:items-start"
           >
-            <div className="flex items-start justify-between gap-4">
-              <span className="rounded border border-teal-300/20 bg-teal-300/10 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-teal-200">
-                {achievement.label}
-              </span>
-              <span className="text-sm text-teal-300 opacity-0 transition group-hover:opacity-100 motion-reduce:transition-none">
-                查看项目
-              </span>
-            </div>
-            <p className="mt-5 inline-flex rounded-md border border-slate-400/20 bg-white/[0.045] px-2.5 py-1 text-sm font-medium text-slate-100 transition group-hover:-translate-y-0.5 group-hover:border-teal-300/35 group-hover:text-teal-100 motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
+            <span className="rounded-full bg-teal-300/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-teal-200">
               {achievement.metric}
-            </p>
-            <h3 className="mt-3 text-base font-semibold leading-snug text-slate-50">
-              {achievement.title}
-            </h3>
-            <p className="mt-3 text-sm leading-6 text-slate-300">
-              {achievement.summary}
-            </p>
+            </span>
+            <div>
+              <p className="editorial-caption text-slate-400">{achievement.label}</p>
+              <h3 className="mt-2 text-lg font-semibold leading-snug tracking-normal text-slate-50">
+                {achievement.title}
+              </h3>
+              <p className="mt-2 text-balance text-sm leading-6 text-slate-400">{achievement.summary}</p>
+            </div>
+            <span className="grid size-9 place-items-center rounded-full border border-white/12 bg-white/[0.04] text-slate-200 transition group-hover:bg-slate-100 group-hover:text-slate-950">
+              <ArrowUpRight className="size-4" aria-hidden="true" />
+              <span className="sr-only">查看关联内容</span>
+            </span>
           </Link>
         );
       })}

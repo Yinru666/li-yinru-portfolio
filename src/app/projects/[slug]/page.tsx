@@ -139,30 +139,30 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
   return (
     <article className="section-fade">
-      <header className="border-b border-slate-500/15">
-        <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:px-8">
+      <header className="border-b border-white/10 bg-white/[0.018]">
+        <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 pb-20 pt-32 sm:px-6 sm:pt-40 lg:grid-cols-[1fr_0.72fr] lg:px-8">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.28em] text-teal-300/80">
+            <p className="editorial-caption text-teal-300">
               {project.eyebrow}
             </p>
-            <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-slate-50 sm:text-5xl">
+            <h1 className="mt-4 text-[2rem] font-semibold leading-[1.12] tracking-normal text-slate-50 sm:text-6xl sm:leading-[1.08]">
               {project.title}
             </h1>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300">
+            <p className="mt-6 max-w-3xl text-base leading-8 text-slate-400">
               {project.summary}
             </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-lg border border-slate-500/20 bg-white/[0.03] p-4">
-                <p className="text-xs text-slate-400">Role</p>
-                <p className="mt-2 text-sm text-slate-100">{project.role}</p>
+            <div className="mt-9 grid gap-5 border-t border-white/10 pt-5 sm:grid-cols-[0.85fr_1fr_1.4fr]">
+              <div>
+                <p className="editorial-caption text-slate-400">Role</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{project.role}</p>
               </div>
-              <div className="rounded-lg border border-slate-500/20 bg-white/[0.03] p-4">
-                <p className="text-xs text-slate-400">Status</p>
-                <p className="mt-2 text-sm text-slate-100">{project.status}</p>
+              <div>
+                <p className="editorial-caption text-slate-400">Status</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{project.status}</p>
               </div>
-              <div className="rounded-lg border border-slate-500/20 bg-white/[0.03] p-4">
-                <p className="text-xs text-slate-400">Result</p>
-                <p className="mt-2 text-sm text-slate-100">
+              <div>
+                <p className="editorial-caption text-slate-400">Result</p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
                   {project.result ?? "阶段性方案与原型设计"}
                 </p>
               </div>
@@ -173,7 +173,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   key={keyword}
                   variant="outline"
                   title={`${keyword} used in this project`}
-                  className="h-auto rounded border-slate-500/25 bg-white/[0.03] px-2 py-1 font-mono text-[11px] text-slate-300 transition hover:border-teal-300/45 hover:text-teal-100"
+                  className="h-auto rounded-full border-white/10 bg-white/[0.035] px-2.5 py-1 font-mono text-[10px] text-slate-400 transition hover:border-teal-300/35 hover:text-teal-200"
                 >
                   {keyword}
                 </Badge>
@@ -186,26 +186,26 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         </div>
       </header>
 
-      <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         <section>
           <SectionTitle
             eyebrow="Problem / Challenge"
             title="现场约束与工程挑战"
           />
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {project.problems.map((problem, index) => (
               <details
                 key={problem.title}
                 open={index === 0}
-                className="group rounded-lg border border-slate-500/20 bg-white/[0.03] p-5 transition hover:border-teal-300/40 hover:bg-white/[0.052]"
+                className="group rounded-[1.15rem] border border-white/10 bg-white/[0.03] p-5 shadow-[0_12px_30px_rgba(0,0,0,0.2)] transition hover:border-teal-300/35 hover:bg-white/[0.055]"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300">
                   <span>{problem.title}</span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal-300/70">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal-300/75">
                     Detail
                   </span>
                 </summary>
-                <p className="mt-4 text-sm leading-6 text-slate-300">
+                <p className="mt-4 text-balance text-sm leading-6 text-slate-400">
                   {problem.detail}
                 </p>
               </details>
@@ -213,13 +213,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        <section className="mt-20">
+        <section className="mt-24">
           <SectionTitle
             eyebrow="Method / Pipeline"
             title="方法流程"
             description="采集、训练、输出和工程应用按节点展开。"
           />
-          <div className="mt-8">
+          <div className="mt-10">
             <PipelineExplorer steps={project.pipeline} />
           </div>
           {routeEvidenceImage ? (
@@ -229,13 +229,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           ) : null}
         </section>
 
-        <section className="mt-20">
+        <section className="mt-24">
           <SectionTitle
             eyebrow="Explorable Logic"
             title="从数据到判断，再到工程行动。"
             description="节点切换展示感知结果如何进入复核和处置链路。"
           />
-          <div className="mt-8">
+          <div className="mt-10">
             <PipelineExplorer
               steps={logicSteps}
               eyebrow="Project Logic"
@@ -244,23 +244,23 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        <section className="mt-20">
+        <section className="mt-24">
           <SectionTitle
             eyebrow="Gallery / Evidence"
             title="项目图集与证据"
             description="检测结果图保留原始检测框、类别和置信度；图片可放大查看。"
           />
-          <div className="mt-8">
+          <div className="mt-10">
             <LightboxGallery images={evidenceImages} />
           </div>
         </section>
 
-        <section className="mt-20 grid gap-5 lg:grid-cols-2">
-          <div className="rounded-lg border border-slate-500/20 bg-white/[0.03] p-6">
-            <h2 className="text-xl font-semibold text-slate-50">
+        <section className="mt-24 grid gap-10 lg:grid-cols-2">
+          <div className="border-t border-white/10 pt-6">
+            <h2 className="text-2xl font-semibold tracking-normal text-slate-50">
               Results / Outcomes
             </h2>
-            <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-300">
+            <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-400">
               {project.results.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-3 h-px w-5 shrink-0 bg-teal-300/60" />
@@ -269,11 +269,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               ))}
             </ul>
           </div>
-          <div className="rounded-lg border border-slate-500/20 bg-white/[0.03] p-6">
-            <h2 className="text-xl font-semibold text-slate-50">
+          <div className="border-t border-white/10 pt-6">
+            <h2 className="text-2xl font-semibold tracking-normal text-slate-50">
               Reflection / Next Step
             </h2>
-            <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-300">
+            <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-400">
               {project.reflection.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-3 h-px w-5 shrink-0 bg-teal-300/60" />
@@ -284,8 +284,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        <section className="mt-20 rounded-lg border border-slate-500/20 bg-slate-950/70 p-6">
-          <h2 className="text-xl font-semibold text-slate-50">Related Links</h2>
+        <section className="mt-24 rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-normal text-slate-50">Related Links</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             <CTAButton href="/projects">返回项目列表</CTAButton>
             <CTAButton href="/contact" variant="primary">
@@ -296,7 +296,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               <Link
                 key={area.id}
                 href={`/research#${area.id}`}
-                className="inline-flex min-h-11 items-center rounded-md border border-slate-500/25 px-4 py-2 text-sm text-teal-200 transition hover:border-teal-300/50 hover:bg-white/[0.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px"
+                prefetch={false}
+                className="inline-flex min-h-11 items-center rounded-full border border-white/12 bg-white/[0.045] px-4 py-2 text-sm font-medium text-slate-100 transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px"
               >
                 {area.title}
               </Link>

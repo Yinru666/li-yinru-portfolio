@@ -2,42 +2,49 @@ import Link from "next/link";
 import { MobileNav } from "./MobileNav";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/projects", label: "Projects" },
-  { href: "/research", label: "Research" },
-  { href: "/resume", label: "Resume" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "首页" },
+  { href: "/projects", label: "项目" },
+  { href: "/research", label: "研究" },
+  { href: "/resume", label: "履历" },
+  { href: "/contact", label: "联系" },
 ];
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-500/15 bg-slate-950/80 backdrop-blur-xl">
-      <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
+      <div className="relative mx-auto flex max-w-[92rem] items-center justify-center px-5 pt-4 lg:px-8">
         <Link
           href="/"
-          className="group flex min-w-0 items-center gap-3 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300"
+          prefetch={false}
+          className="pointer-events-auto absolute left-8 top-6 hidden items-center gap-3 rounded-full text-sm text-slate-300 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300 lg:flex"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-md border border-teal-300/35 bg-teal-300/10 font-mono text-sm text-teal-200 transition group-hover:border-teal-300/70">
+          <span className="grid size-8 place-items-center rounded-full border border-white/12 bg-white/[0.05] font-mono text-xs text-slate-100 shadow-sm shadow-black/30">
             李
           </span>
-          <span className="min-w-0">
-            <span className="block text-sm font-semibold text-slate-50">李胤儒</span>
+          <span className="leading-tight">
+            <span className="block font-semibold">李胤儒</span>
             <span className="block text-xs text-slate-400">Smart Transportation</span>
           </span>
         </Link>
-        <div className="hidden items-center gap-1 md:flex">
-          {navItems.map((item) => (
+
+        <nav
+          aria-label="主导航"
+          className="pointer-events-auto hidden items-center gap-1 rounded-full border border-white/10 bg-[#111718]/88 p-1.5 shadow-[0_16px_40px_rgba(0,0,0,0.38)] backdrop-blur-xl md:flex"
+        >
+          {navItems.map((item, index) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm text-slate-300 transition hover:bg-white/[0.05] hover:text-teal-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px"
+              prefetch={false}
+              className="rounded-full px-4 py-2 text-sm font-medium text-slate-400 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px"
             >
+              {index === 0 ? <span className="mr-1.5 font-mono text-xs">01</span> : null}
               {item.label}
             </Link>
           ))}
-        </div>
-        <MobileNav items={navItems} />
-      </nav>
+        </nav>
+      </div>
+      <MobileNav items={navItems} />
     </header>
   );
 }

@@ -11,11 +11,11 @@ type CTAButtonProps = {
 
 const variants = {
   primary:
-    "border-teal-300/60 bg-slate-900/90 text-slate-50 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] hover:border-teal-200 hover:bg-slate-800 active:translate-y-px",
+    "border-white/10 bg-slate-100 text-slate-950 shadow-[0_10px_24px_rgba(0,0,0,0.28)] hover:-translate-y-0.5 hover:bg-teal-200 active:translate-y-px",
   secondary:
-    "border-slate-400/35 bg-white/[0.055] text-slate-50 hover:border-teal-300/55 hover:bg-white/[0.085] active:translate-y-px",
+    "border-white/12 bg-white/[0.04] text-slate-100 hover:-translate-y-0.5 hover:border-white/24 hover:bg-white/[0.08] active:translate-y-px",
   ghost:
-    "border-slate-500/25 bg-transparent text-slate-200 hover:border-slate-300/45 hover:bg-white/[0.055] active:translate-y-px",
+    "border-transparent bg-transparent text-slate-300 hover:bg-white/[0.05] hover:text-white active:translate-y-px",
 };
 
 export function CTAButton({
@@ -29,12 +29,14 @@ export function CTAButton({
       asChild
       variant="outline"
       className={cn(
-        "min-h-11 rounded-md px-4 py-2 transition duration-200 focus-visible:ring-teal-300/45 motion-reduce:transition-none",
+        "min-h-11 rounded-full px-5 py-2 transition duration-200 focus-visible:ring-teal-300/35 motion-reduce:transition-none",
         variants[variant],
         className,
       )}
     >
-      <Link href={href}>{children}</Link>
+      <Link href={href} prefetch={false}>
+        {children}
+      </Link>
     </Button>
   );
 }

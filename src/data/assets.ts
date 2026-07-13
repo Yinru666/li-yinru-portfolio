@@ -87,7 +87,7 @@ export const images = {
     width: 1915,
     height: 1003,
     alt: "太原科技大学官网比赛获奖新闻稿截图",
-    caption: "太原科技大学官网比赛获奖新闻稿辅助展示。",
+    caption: "太原科技大学官网发布的比赛获奖新闻截图。",
     usage: "achievement evidence",
   },
   transportShow: {
@@ -112,7 +112,7 @@ export const images = {
     width: 1843,
     height: 1280,
     alt: "全国计算机等级考试二级证书相关材料",
-    caption: "全国计算机等级考试二级证书辅助展示。",
+    caption: "全国计算机等级考试二级证书相关材料。",
     usage: "credential evidence",
     sensitive: true,
   },

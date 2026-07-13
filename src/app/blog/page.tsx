@@ -3,30 +3,30 @@ import { blogPosts } from "@/data/blog";
 
 export default function BlogPage() {
   return (
-    <div className="section-fade mx-auto w-full max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className="section-fade mx-auto w-full max-w-6xl px-4 pb-24 pt-32 sm:px-6 sm:pt-40 lg:px-8">
       <SectionTitle
-        eyebrow="Blog"
+        as="h1"
+        eyebrow="Research Notes"
         title="技术笔记"
-        description="围绕无人机巡检、目标检测和边坡预警整理后续写作主题。"
+        description="围绕无人机巡检、目标检测和边坡预警整理的研究问题与实践判断。"
       />
-      <div className="mt-10 grid gap-4">
+      <div className="mt-12">
         {blogPosts.map((post, index) => (
           <article
             key={post.title}
-            className="rounded-lg border border-slate-500/20 bg-white/[0.03] p-5"
+            id={`note-${index + 1}`}
+            className="scroll-mt-28 grid gap-5 border-t border-white/10 py-7 sm:grid-cols-[4rem_1fr] sm:items-start"
           >
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="font-mono text-xs text-slate-400">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="rounded border border-slate-500/25 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-teal-300">
-                {post.tag}
-              </span>
+            <span className="font-mono text-xs text-teal-300/80">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <p className="editorial-caption text-slate-400">{post.tag}</p>
+              <h2 className="mt-3 text-2xl font-semibold tracking-normal text-slate-50">
+                {post.title}
+              </h2>
+              <p className="mt-3 max-w-2xl text-balance text-sm leading-7 text-slate-400">{post.summary}</p>
             </div>
-            <h2 className="mt-4 text-lg font-semibold text-slate-50">
-              {post.title}
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-slate-300">{post.summary}</p>
           </article>
         ))}
       </div>

@@ -3,18 +3,18 @@ import { contact } from "@/data/contact";
 
 export function ContactCTASection() {
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-      <div className="overflow-hidden rounded-lg border border-slate-500/25 bg-slate-900/70 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-8">
+    <section className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-6 shadow-[0_24px_58px_rgba(0,0,0,0.24)] sm:p-10">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.28em] text-teal-300/80">
+            <p className="editorial-caption text-teal-300">
               Contact
             </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl">
+            <h2 className="mt-3 text-3xl font-semibold tracking-normal text-slate-50 sm:text-4xl">
               欢迎围绕智能交通与低空巡检方向交流。
             </h2>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
-              {contact.english} {contact.wechatNote}
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-400">
+              欢迎通过邮件交流科研合作、项目实践与技术问题。{contact.wechatNote}
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">

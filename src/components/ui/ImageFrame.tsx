@@ -20,7 +20,7 @@ export function ImageFrame({
   return (
     <figure
       className={cn(
-        "overflow-hidden rounded-lg border border-slate-500/20 bg-slate-950/70 shadow-2xl shadow-black/20",
+        "overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#111718] shadow-[0_20px_52px_rgba(0,0,0,0.32)]",
         className,
       )}
     >
@@ -32,14 +32,14 @@ export function ImageFrame({
           height={image.height}
           priority={priority}
           className={cn(
-            "h-full w-full object-cover opacity-90 saturate-[0.86]",
+            "h-full w-full object-cover",
             imageClassName,
           )}
         />
-        <div className="pointer-events-none absolute inset-0 bg-teal-950/10" />
+        <div className="pointer-events-none absolute inset-0 bg-teal-950/[0.025]" />
       </div>
       {showCaption ? (
-        <figcaption className="border-t border-slate-500/15 px-4 py-3 text-xs leading-5 text-slate-400">
+        <figcaption className="border-t border-white/8 px-4 py-3 text-xs leading-5 text-slate-400">
           {image.caption}
         </figcaption>
       ) : null}

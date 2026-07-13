@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" className="dark h-full scroll-pt-24 font-sans antialiased">
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+      <body className="flex min-h-full flex-col bg-background pb-24 text-foreground md:pb-0">
         <TooltipProvider delayDuration={180}>
           <Navbar />
           <main className="min-w-0 flex-1">{children}</main>
