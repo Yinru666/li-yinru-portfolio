@@ -98,7 +98,7 @@ export default function ResumePage() {
                 <div key={achievement.id} id={achievement.id} className="border-b border-white/8 py-5">
                   <p className="font-mono text-xs text-teal-300">{achievement.metric}</p>
                   <h3 className="mt-2 text-base font-semibold text-slate-50">{achievement.title}</h3>
-                  <p className="mt-2 text-balance text-sm leading-6 text-slate-400">{achievement.summary}</p>
+                  <p className="mt-2 text-pretty text-sm leading-6 text-slate-400">{achievement.summary}</p>
                 </div>
               ))}
             </div>
@@ -118,7 +118,7 @@ export default function ResumePage() {
                   <div>
                     <h3 className="text-lg font-semibold tracking-normal text-slate-50 transition group-hover:text-teal-200">{project.title}</h3>
                     <p className="mt-2 text-sm text-slate-400">{project.role} · {project.status}</p>
-                    <p className="mt-3 text-balance text-sm leading-6 text-slate-400">{project.summary}</p>
+                    <p className="mt-3 text-pretty text-sm leading-6 text-slate-400">{project.summary}</p>
                   </div>
                   <ArrowUpRight className="size-4 text-slate-400 transition group-hover:text-teal-300" aria-hidden="true" />
                 </Link>
@@ -144,7 +144,7 @@ export default function ResumePage() {
           <section id="research" className="scroll-mt-28 border-t border-white/10 pt-6">
             <p className="editorial-caption text-teal-300">Research Output</p>
             <h2 className="mt-3 text-2xl font-semibold tracking-normal text-slate-50">科研与成果</h2>
-            <p className="mt-4 max-w-3xl text-balance text-sm leading-7 text-slate-400">
+            <p className="mt-4 max-w-3xl text-pretty text-sm leading-7 text-slate-400">
               作为发明人之一参与 2 项国家发明专利，持续将智能交通、无人机巡检与边坡风险预警中的工程问题转化为可验证的技术方案。
             </p>
           </section>

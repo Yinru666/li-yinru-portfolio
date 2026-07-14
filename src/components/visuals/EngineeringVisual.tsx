@@ -32,7 +32,7 @@ export function EngineeringVisual() {
           <h2 className="mt-2 text-xl font-semibold leading-tight tracking-normal text-slate-50 sm:text-2xl">
             低空智能巡检驱动交通基础设施安全治理
           </h2>
-          <p className="mt-3 max-w-4xl text-balance text-sm leading-6 text-slate-400">
+          <p className="mt-3 max-w-4xl text-pretty text-sm leading-6 text-slate-400">
             围绕交通基础设施安全监测，融合低空遥感、多源数据采集、视觉识别与风险评估，形成可验证的智能巡检研究路径。
           </p>
         </div>

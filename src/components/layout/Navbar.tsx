@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MobileNav } from "./MobileNav";
 
 const navItems = [
@@ -10,6 +13,8 @@ const navItems = [
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
+
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
       <div className="relative mx-auto flex max-w-[92rem] items-center justify-center px-5 pt-4 lg:px-8">
@@ -31,17 +36,28 @@ export function Navbar() {
           aria-label="主导航"
           className="pointer-events-auto hidden items-center gap-1 rounded-full border border-white/10 bg-[#111718]/88 p-1.5 shadow-[0_16px_40px_rgba(0,0,0,0.38)] backdrop-blur-xl md:flex"
         >
-          {navItems.map((item, index) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              prefetch={false}
-              className="rounded-full px-4 py-2 text-sm font-medium text-slate-400 transition hover:bg-slate-100 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px"
-            >
-              {index === 0 ? <span className="mr-1.5 font-mono text-xs">01</span> : null}
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const active =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                prefetch={false}
+                aria-current={active ? "page" : undefined}
+                className={`rounded-full px-4 py-2 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-px ${
+                  active
+                    ? "bg-slate-100 text-slate-950 shadow-sm shadow-black/25"
+                    : "text-slate-400 hover:bg-white/[0.07] hover:text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
       <MobileNav items={navItems} />

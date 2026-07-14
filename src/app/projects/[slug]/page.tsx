@@ -84,19 +84,19 @@ function getLogicSteps(slug: string, fallback: PipelineStep[]): PipelineStep[] {
   if (slug === "transport-slope-uav-warning-system") {
     return [
       {
-        title: "低空巡检",
+        title: "现场约束",
         detail:
-          "通过无人机影像快速获得边坡表观状态，关注裂缝、滑移迹象和危险区域。",
+          "先核对坡体高差、植被、架空线路和道路通行条件，明确安全作业边界与重点扫描范围。",
       },
       {
-        title: "多时序对比",
+        title: "低空影像与三维模型",
         detail:
-          "比较不同巡检周期的影像变化，识别单帧图像难以判断的持续发展趋势。",
+          "利用多角度重叠影像生成稠密点云与纹理模型，把坡体、坡脚和道路放入统一空间坐标。",
       },
       {
-        title: "多源风险判断",
+        title: "多时序变化判断",
         detail:
-          "将低空影像、InSAR、三维重建和传感器监测放到统一工程语境中解释。",
+          "将不同周期模型配准对比，并结合 InSAR、现场巡查和传感器监测识别持续异常。",
       },
       {
         title: "处置复核闭环",
@@ -135,13 +135,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       !shownImageSources.has(image.src) &&
       allImages.findIndex((candidate) => candidate.src === image.src) === index,
   );
-  const evidenceImages = galleryImages.length > 0 ? galleryImages : project.gallery;
+  const evidenceImages = galleryImages;
 
   return (
     <article className="section-fade">
       <header className="border-b border-white/10 bg-white/[0.018]">
-        <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 pb-20 pt-32 sm:px-6 sm:pt-40 lg:grid-cols-[1fr_0.72fr] lg:px-8">
-          <div>
+        <div className="mx-auto grid w-full max-w-7xl gap-x-10 gap-y-8 px-4 pb-20 pt-32 sm:px-6 sm:pt-40 lg:grid-cols-[1fr_0.72fr] lg:items-start lg:px-8">
+          <div className="min-w-0">
             <p className="editorial-caption text-teal-300">
               {project.eyebrow}
             </p>
@@ -151,7 +151,16 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             <p className="mt-6 max-w-3xl text-base leading-8 text-slate-400">
               {project.summary}
             </p>
-            <div className="mt-9 grid gap-5 border-t border-white/10 pt-5 sm:grid-cols-[0.85fr_1fr_1.4fr]">
+          </div>
+          {project.heroImage ? (
+            <ImageFrame
+              image={project.heroImage}
+              priority
+              className="h-fit lg:col-start-2 lg:row-span-2 lg:row-start-1"
+            />
+          ) : null}
+          <div className="min-w-0 lg:col-start-1 lg:row-start-2">
+            <div className="grid gap-5 border-t border-white/10 pt-5 sm:grid-cols-[0.85fr_1fr_1.4fr]">
               <div>
                 <p className="editorial-caption text-slate-400">Role</p>
                 <p className="mt-2 text-sm leading-6 text-slate-300">{project.role}</p>
@@ -180,9 +189,6 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               ))}
             </div>
           </div>
-          {project.heroImage ? (
-            <ImageFrame image={project.heroImage} priority className="h-fit" />
-          ) : null}
         </div>
       </header>
 
@@ -201,11 +207,12 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300">
                   <span>{problem.title}</span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-teal-300/75">
-                    Detail
+                  <span className="font-mono text-[10px] uppercase text-teal-300/75">
+                    <span className="group-open:hidden">展开</span>
+                    <span className="hidden group-open:inline">收起</span>
                   </span>
                 </summary>
-                <p className="mt-4 text-balance text-sm leading-6 text-slate-400">
+                <p className="mt-4 text-pretty text-sm leading-6 text-slate-400 group-open:animate-in group-open:fade-in-0 group-open:slide-in-from-top-1 motion-reduce:animate-none">
                   {problem.detail}
                 </p>
               </details>
@@ -217,14 +224,14 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           <SectionTitle
             eyebrow="Method / Pipeline"
             title="方法流程"
-            description="采集、训练、输出和工程应用按节点展开。"
+            description="沿数据获取、分析判断与工程输出逐步展开。"
           />
           <div className="mt-10">
             <PipelineExplorer steps={project.pipeline} />
           </div>
           {routeEvidenceImage ? (
             <div className="mt-8">
-              <ImageFrame image={routeEvidenceImage} />
+              <LightboxGallery images={[routeEvidenceImage]} layout="feature" />
             </div>
           ) : null}
         </section>
@@ -244,16 +251,18 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-        <section className="mt-24">
-          <SectionTitle
-            eyebrow="Gallery / Evidence"
-            title="项目图集与证据"
-            description="检测结果图保留原始检测框、类别和置信度；图片可放大查看。"
-          />
-          <div className="mt-10">
-            <LightboxGallery images={evidenceImages} />
-          </div>
-        </section>
+        {evidenceImages.length > 0 ? (
+          <section className="mt-24">
+            <SectionTitle
+              eyebrow="Gallery / Evidence"
+              title="项目图集与证据"
+              description="项目图片保留现场与技术语境，可点击放大查看。"
+            />
+            <div className="mt-10">
+              <LightboxGallery images={evidenceImages} />
+            </div>
+          </section>
+        ) : null}
 
         <section className="mt-24 grid gap-10 lg:grid-cols-2">
           <div className="border-t border-white/10 pt-6">

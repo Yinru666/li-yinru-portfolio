@@ -27,7 +27,7 @@ export default function ResearchPage() {
               <h2 className="mt-3 text-3xl font-semibold tracking-normal text-slate-50">
                 {area.title}
               </h2>
-              <p className="mt-4 text-balance text-sm leading-7 text-slate-400">{area.summary}</p>
+              <p className="mt-4 text-pretty text-sm leading-7 text-slate-400">{area.summary}</p>
               <div className="mt-5 flex flex-wrap gap-x-3 gap-y-2">
                 {area.keywords.map((keyword) => (
                   <span key={keyword} className="font-mono text-[10px] text-teal-300/80">
@@ -55,7 +55,7 @@ export default function ResearchPage() {
               </div>
               <div>
                 <h3 className="editorial-caption text-slate-400">Future Work</h3>
-                <p className="mt-3 text-balance">{area.futureWork}</p>
+                <p className="mt-3 text-pretty">{area.futureWork}</p>
               </div>
             </div>
           </section>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Maximize2 } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -13,14 +14,19 @@ import type { SiteImage } from "@/data/assets";
 
 type LightboxGalleryProps = {
   images: SiteImage[];
+  layout?: "grid" | "feature";
 };
 
-export function LightboxGallery({ images }: LightboxGalleryProps) {
+export function LightboxGallery({
+  images,
+  layout = "grid",
+}: LightboxGalleryProps) {
   const [selected, setSelected] = useState<SiteImage | null>(null);
+  const isFeature = layout === "feature";
 
   return (
     <>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className={isFeature ? "grid gap-4" : "grid gap-4 md:grid-cols-2"}>
         {images.map((image) => (
           <button
             key={image.src}
@@ -29,19 +35,35 @@ export function LightboxGallery({ images }: LightboxGalleryProps) {
             className="group overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/[0.035] text-left shadow-[0_12px_32px_rgba(0,0,0,0.22)] transition duration-200 hover:-translate-y-1 hover:border-teal-300/35 hover:bg-white/[0.055] hover:shadow-[0_18px_42px_rgba(0,0,0,0.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-300 active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             aria-label={`放大查看：${image.alt}`}
           >
-            <div className="relative aspect-video overflow-hidden">
+            <div
+              className={
+                isFeature
+                  ? "relative overflow-hidden bg-[#0b1010]"
+                  : "relative aspect-video overflow-hidden"
+              }
+            >
               <Image
                 src={image.src}
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
-                className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                sizes={
+                  isFeature
+                    ? "(min-width: 1280px) 80rem, 100vw"
+                    : "(min-width: 768px) 50vw, 100vw"
+                }
+                className={
+                  isFeature
+                    ? "h-auto w-full object-contain transition duration-300 group-hover:scale-[1.012] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    : "h-full w-full object-cover transition duration-300 group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                }
               />
-              <span className="absolute bottom-3 right-3 rounded-full border border-white/15 bg-[#111718]/88 px-2.5 py-1 text-xs text-slate-100 opacity-0 shadow-sm backdrop-blur-md transition group-hover:opacity-100 group-focus-visible:opacity-100">
-                放大查看
+              <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-[#111718]/88 px-2.5 py-1 text-xs text-slate-100 opacity-80 shadow-sm backdrop-blur-md transition group-hover:opacity-100 group-focus-visible:opacity-100">
+                <Maximize2 className="size-3" aria-hidden="true" />
+                <span className="hidden sm:inline">放大查看</span>
               </span>
             </div>
-            <p className="border-t border-white/8 px-4 py-3 text-balance text-xs leading-5 text-slate-400">
+            <p className="border-t border-white/8 px-4 py-3 text-pretty text-xs leading-5 text-slate-400">
               {image.caption}
             </p>
           </button>

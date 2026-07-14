@@ -73,6 +73,22 @@ export const images = {
     caption: "边坡动态预警项目技术路线图，展示多源监测与预警流程。",
     usage: "slope project method",
   },
+  slopeFieldOperation: {
+    src: "/images/picture/slope-field-operation.jpg",
+    width: 1706,
+    height: 1279,
+    alt: "交通边坡现场低空巡检作业，作业人员在道路边坡前操作无人机",
+    caption: "交通边坡现场踏勘与低空巡检作业，记录坡体、道路和周边环境关系。",
+    usage: "transport slope field evidence",
+  },
+  slopeUavReconstruction: {
+    src: "/images/picture/slope-uav-reconstruction.jpg",
+    width: 1144,
+    height: 633,
+    alt: "基于无人机倾斜摄影生成的交通边坡三维重建模型",
+    caption: "无人机倾斜摄影三维重建结果，用于观察坡体形态、道路边界与植被覆盖。",
+    usage: "transport slope reconstruction evidence",
+  },
   transportAward: {
     src: "/images/picture/transport-competition-award.jpg",
     width: 1279,

@@ -28,7 +28,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           />
         ) : null}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/22 to-transparent" />
-        <span className="absolute left-4 top-4 rounded-full border border-white/35 bg-slate-950/60 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+        <span className="absolute left-4 top-4 rounded-full border border-white/35 bg-slate-950/60 px-3 py-1.5 font-mono text-[10px] uppercase text-white backdrop-blur-sm">
           {project.status}
         </span>
       </div>
@@ -43,7 +43,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         <h3 className="mt-3 text-xl font-semibold leading-snug tracking-normal text-slate-50">
           {project.title}
         </h3>
-        <p className="mt-3 text-balance text-sm leading-6 text-slate-400">{project.summary}</p>
+        <p className="mt-3 text-pretty text-sm leading-6 text-slate-400">{project.summary}</p>
         <div className="mt-5 flex flex-wrap gap-2">
           {project.keywords.slice(0, 3).map((keyword) => (
             <span

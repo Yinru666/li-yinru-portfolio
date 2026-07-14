@@ -17,7 +17,7 @@ export function HeroSection() {
             <span className="block">低空感知、视觉识别</span>
             <span className="block">与交通基础设施安全。</span>
           </p>
-          <p className="mx-auto mt-6 max-w-4xl text-balance text-base leading-8 text-slate-400 sm:text-lg">
+          <p className="mx-auto mt-6 max-w-4xl text-pretty text-base leading-8 text-slate-400 sm:text-lg">
             面向道路与边坡场景，探索无人机低空感知、多源监测融合与风险预警的研究和工程实践。
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-2.5">

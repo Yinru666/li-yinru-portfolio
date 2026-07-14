@@ -22,7 +22,7 @@ export function ResearchCard({ area, index }: ResearchCardProps) {
         <h3 className="mt-2 text-2xl font-semibold tracking-normal text-slate-50 transition group-hover:text-teal-200">
           {area.title}
         </h3>
-        <p className="mt-3 max-w-2xl text-balance text-sm leading-6 text-slate-400">{area.summary}</p>
+        <p className="mt-3 max-w-2xl text-pretty text-sm leading-6 text-slate-400">{area.summary}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {area.keywords.slice(0, 4).map((keyword) => (
             <span key={keyword} className="font-mono text-[10px] text-slate-400">

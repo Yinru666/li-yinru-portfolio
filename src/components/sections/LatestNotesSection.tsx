@@ -35,7 +35,7 @@ export function LatestNotesSection() {
               <h3 className="mt-2 text-lg font-semibold tracking-normal text-slate-50 transition group-hover:text-teal-200">
                 {post.title}
               </h3>
-              <p className="mt-2 text-balance text-sm leading-6 text-slate-400">{post.summary}</p>
+              <p className="mt-2 text-pretty text-sm leading-6 text-slate-400">{post.summary}</p>
             </div>
             <ArrowUpRight className="mt-1 size-4 text-slate-400 transition group-hover:text-teal-200" aria-hidden="true" />
           </Link>

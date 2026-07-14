@@ -34,7 +34,7 @@ export function TimelineInteractive({ events }: TimelineInteractiveProps) {
                     : "absolute left-3 top-5 h-3 w-3 rounded-full border border-slate-400 bg-slate-950 sm:hidden"
                 }
               />
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-teal-300/80">
+              <span className="font-mono text-xs uppercase text-teal-300/80">
                 {event.time}
               </span>
               <h3 className="mt-2 text-base font-semibold text-slate-50">
@@ -46,7 +46,7 @@ export function TimelineInteractive({ events }: TimelineInteractiveProps) {
         })}
       </div>
       <aside className="rounded-lg border border-slate-500/20 bg-slate-950/70 p-5">
-        <p className="font-mono text-xs uppercase tracking-[0.22em] text-teal-300">
+        <p className="font-mono text-xs uppercase text-teal-300">
           Selected Node
         </p>
         <h3 className="mt-3 text-lg font-semibold text-slate-50">

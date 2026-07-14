@@ -25,7 +25,7 @@ export default function BlogPage() {
               <h2 className="mt-3 text-2xl font-semibold tracking-normal text-slate-50">
                 {post.title}
               </h2>
-              <p className="mt-3 max-w-2xl text-balance text-sm leading-7 text-slate-400">{post.summary}</p>
+              <p className="mt-3 max-w-2xl text-pretty text-sm leading-7 text-slate-400">{post.summary}</p>
             </div>
           </article>
         ))}
